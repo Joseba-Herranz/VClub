@@ -14,4 +14,22 @@ $(document).ready(function() {
     $("#profile").mouseout(function() {
       $(this).attr("class", "bi bi-person");
     });
+
+    $('.dropdown-content').hide();
+    // When the user clicks the dropdown button
+    $(".dropbtn").click(function() {
+      $(".dropdown-content").toggle();
+    });
+  
+    $(window).click(function(e) {
+      if (!e.target.matches('.dropbtn')) {
+        var dropdowns = $('.dropdown-content');
+        dropdowns.each(function() {
+          if ($(this).is(':visible')) {
+            $(this).hide();
+          }
+        });
+      }
+    });
+
 });
