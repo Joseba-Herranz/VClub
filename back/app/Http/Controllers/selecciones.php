@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class Selecciones extends Controller
 {
@@ -10,20 +12,37 @@ class Selecciones extends Controller
     function allMovies(){
         $movies = DB::select('select * from movies');
 
-        return $movies;
+        return response()->json([
+            'data' => $movies
+        ]);
     }
 
-    function genre($genero){
-        
-        $genre = DB::select(`select * from movies INNER JOIN movies_genres ON movies.id = movies_genres. movie_id where movies_genres.genre = '$genero'`);
+    function genre(Request $request){
+        $request->validate([
+            'genre' => 'required',
+        ]);
 
-        return $genre;
+        $genero = $request->input('genre');
+
+        $genre = DB::select("select * from movies inner join movies_genres on movies.id = movies_genres.movie_id where movies_genres.genre = '$genero'");
+
+         return response()->json([
+            'data' => $genre
+        ]);
     }
 
-    function year($año){
+    function year(Request $request){
         
-        $year = DB::select(`select * from movies where year = '$año'`);
+        $request->validate([
+            'year' => 'required',
+        ]);
 
-        return $year;
+        $año = $request->input('year');
+
+        $year = DB::select("select * from movies where year = $año");
+
+        return response()->json([
+            'data' => $year
+        ]);
     }
 }
