@@ -27,4 +27,5 @@ Route::controller(Selecciones::class)->group(function(){
     Route::get('allMovies','allMovies');
     Route::post('genre', 'genre');
     Route::post('year', 'year');
+    Route::post('myList', 'myList');
 });

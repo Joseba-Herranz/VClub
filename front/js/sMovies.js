@@ -1,4 +1,4 @@
-//At the start
+//At the start all movies will apear
 function allMovies(){
     var requestOptions = {
         method: 'GET',
@@ -11,22 +11,24 @@ function allMovies(){
         .then(response => response.json())
         .then(result => {
             result.data.forEach(element => {
+                console.log(element);
                 mov += `<h4>${element.name}</h4> </br>`;
                 // mov += `<p>Year: ${element.year} </p> </br>`;
                 if(element.rankscore != null){
                     // console.log("No es nulo " + element.rankscore);
                     // no_nulo++;
                     // console.log(no_nulo);
-                    mov += `<p>Year: ${element.year} Rank: ${element.rankscore}</p>`;
+                    mov += `<p>Year: ${element.year} Score: ${element.rankscore}</p>`;
                     
                 }else{
                     // console.log("Es nulo " + element.rankscore);
                     // nulo++;
                     // console.log(nulo);
-                    mov += `<p>Year: ${element.year} Rank: No rank</p>`;
+                    mov += `<p>Year: ${element.year} Score: No Score</p>`;
                 }
+                mov += `<button onclick="addList(${element.id})" >My List</button>`;
                 mov += '</br>';
-                mov += '-------------------'
+                mov += '-------------------';
                 document.getElementById("movieList").innerHTML = mov;
             });
         })
@@ -51,8 +53,9 @@ function withScore(){
                 if(element.rankscore != null){
                 mov += `<h4>${element.name}</h4> </br>`;
                 mov += `<p>Year: ${element.year} Score: ${element.rankscore}</p>`;
+                mov += `<button onclick="addList(${element.id})">My List</button>`;
                 mov += '</br>';
-                mov += '-------------------'
+                mov += '-------------------';
             }
                 document.getElementById("movieList").innerHTML = mov;
             });
@@ -60,4 +63,23 @@ function withScore(){
         .catch(error => console.log('error', error));
 }
 
-//
+//Add to myList
+
+ function addList(movieID){
+    
+    console.log(movieID);
+    var formdata = new FormData();
+    formdata.append("id", movieID);
+    formdata.append("user", "1");
+
+    var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    fetch("http://127.0.0.1:8000/api/myList", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+ }

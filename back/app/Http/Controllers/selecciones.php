@@ -45,4 +45,23 @@ class Selecciones extends Controller
             'data' => $year
         ]);
     }
+
+    function myList(Request $request) {
+        $request->validate([
+            'id' => 'required',
+            'user' => 'required',
+        ]);
+    
+        $pelicula = $request->input('id');
+        $user = $request->input('user');
+    
+        DB::table('myList')->insert([
+            'userID' => $user,
+            'movieID' => $pelicula
+        ]);
+    
+        return response()->json([
+            'message' => 'La película ha sido añadida a la lista.'
+        ]);
+    }
 }
