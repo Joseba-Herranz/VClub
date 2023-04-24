@@ -11,7 +11,7 @@ function allMovies(){
         .then(response => response.json())
         .then(result => {
             result.data.forEach(element => {
-                console.log(element);
+                // console.log(element);
                 mov += `<h4>${element.name}</h4> </br>`;
                 // mov += `<p>Year: ${element.year} </p> </br>`;
                 if(element.rankscore != null){
@@ -26,7 +26,7 @@ function allMovies(){
                     // console.log(nulo);
                     mov += `<p>Year: ${element.year} Score: No Score</p>`;
                 }
-                mov += `<button onclick="addList(${element.id})" >My List</button>`;
+                mov += `<button onclick="addList(${element.movieID})" >My List</button>`;
                 mov += '</br>';
                 mov += '-------------------';
                 document.getElementById("movieList").innerHTML = mov;
@@ -44,8 +44,7 @@ function withScore(){
         redirect: 'follow'
     };
       var mov = "</br>";
-    //   var nulo = 0;
-    //   var no_nulo = 0;
+
     fetch("http://127.0.0.1:8000/api/allMovies", requestOptions)
         .then(response => response.json())
         .then(result => {
@@ -53,7 +52,7 @@ function withScore(){
                 if(element.rankscore != null){
                 mov += `<h4>${element.name}</h4> </br>`;
                 mov += `<p>Year: ${element.year} Score: ${element.rankscore}</p>`;
-                mov += `<button onclick="addList(${element.id})">My List</button>`;
+                mov += `<button onclick="addList(${element.movieID})">My List</button>`;
                 mov += '</br>';
                 mov += '-------------------';
             }
@@ -64,7 +63,6 @@ function withScore(){
 }
 
 //Add to myList
-
  function addList(movieID){
     
     console.log(movieID);
@@ -82,4 +80,22 @@ function withScore(){
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
+ }
+
+ //Show list
+ function myList(){
+    console.log("myList");
+    var formdata = new FormData();
+    formdata.append("id", "1");
+
+    var requestOptions = {
+    method: 'POST',
+    body: formdata,
+    redirect: 'follow'
+    };
+
+    fetch("http://127.0.0.1:8000/api/obtenerLista?userID=1", requestOptions)
+    .then(response => response.text())
+    .then(result => )
+    .catch(error => console.log('error', error));
  }

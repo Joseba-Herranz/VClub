@@ -15,6 +15,7 @@ use App\Http\Controllers\Selecciones;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
     Route::post('register', 'register');
@@ -28,4 +29,5 @@ Route::controller(Selecciones::class)->group(function(){
     Route::post('genre', 'genre');
     Route::post('year', 'year');
     Route::post('myList', 'myList');
+    Route::post('obtenerLista', 'obtenerLista');
 });

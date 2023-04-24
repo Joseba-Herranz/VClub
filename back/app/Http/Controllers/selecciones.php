@@ -61,7 +61,22 @@ class Selecciones extends Controller
         ]);
     
         return response()->json([
-            'message' => 'La película ha sido añadida a la lista.'
+            'message' => 'La pelicula ha sido anadida a la lista.'
         ]);
+    }
+
+    function obtenerLista(Request $request){
+        $request->validate([
+            'id' => 'required',
+        ]);
+
+        $usuario = $request->input('id');
+
+        $user = DB::select("select * from myList where userID = $usuario ");
+
+        return response()->json([
+            'data'=>$user
+        ]);
+
     }
 }
