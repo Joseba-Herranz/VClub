@@ -72,7 +72,7 @@ class Selecciones extends Controller
 
         $usuario = $request->input('id');
 
-        $user = DB::select("select * from myList where userID = $usuario ");
+        $user = DB::select("SELECT * FROM myList LEFT JOIN movies ON myList.movieID = movies.movieID WHERE myList.userID = $usuario");
 
         return response()->json([
             'data'=>$user
