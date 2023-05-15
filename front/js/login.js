@@ -1,31 +1,15 @@
-// function vistaPrev(){
-//   document.getElementById("save").addEventListener("click", function(event) {
-        
-//     event.preventDefault();
-    
-//     guardado();
-// });
-
-// document.getElementById("regis").addEventListener("click", function(event) {
-    
-//     event.preventDefault();
-//     console.log("dentro");
-//     registro();
-// });
-
-// document.getElementById("login").addEventListener("click", function(event) {
-    
-//     event.preventDefault();
-    
-//     login();
-// });
-
   /////////
   //Login//
   /////////
 
-  function login(){
-    console.log("dentro")
+
+function prueba(){
+  login();
+}
+
+
+function login(){
+   
       const email = document.getElementById('logE').value;
       const password = document.getElementById('logP').value;
 
