@@ -6,7 +6,7 @@ function allMovies(){
     };
       var mov = "</br>";
 
-    fetch("http://127.0.0.1:8000/api/allMovies", requestOptions)
+    fetch("http://hz114496:1912/api/allMovies", requestOptions)
         .then(response => response.json())
         .then(result => {
             result.data.forEach(element => {
@@ -34,7 +34,7 @@ function withScore(){
     };
       var mov = "</br>";
 
-    fetch("http://127.0.0.1:8000/api/allMovies", requestOptions)
+    fetch("http://hz114496:1912/api/allMovies", requestOptions)
         .then(response => response.json())
         .then(result => {
             result.data.forEach(element => {
@@ -65,7 +65,7 @@ function withScore(){
         redirect: 'follow'
     };
 
-    fetch("http://127.0.0.1:8000/api/myList", requestOptions)
+    fetch("http://hz114496:1912/api/myList", requestOptions)
         .then(response => response.json())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
@@ -85,7 +85,7 @@ function withScore(){
 
     var mov = "</br>";
 
-    fetch("http://127.0.0.1:8000/api/obtenerLista", requestOptions)
+    fetch("http://hz114496:1912/api/obtenerLista", requestOptions)
     .then(response => response.json())
     .then(result =>  {
         console.log(result)
