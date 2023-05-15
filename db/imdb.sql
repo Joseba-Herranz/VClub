@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-04-2023 a las 12:41:08
+-- Tiempo de generación: 15-05-2023 a las 09:57:19
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -5949,7 +5949,8 @@ INSERT INTO `mylist` (`id`, `userID`, `movieID`) VALUES
 (2, 1, 1),
 (3, 1, 2),
 (4, 1, 3),
-(6, 1, 4);
+(6, 1, 4),
+(8, 1, 11);
 
 -- --------------------------------------------------------
 
@@ -7017,6 +7018,16 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(4, 'prueba', 'prueba@prueba.com', NULL, '$2y$10$WyJN/aAhzfwo9A6rS0isBu//uS4mKVwnq9Gkzn5axkV0MCimQqTru', NULL, '2023-05-15 05:02:04', '2023-05-15 05:02:04'),
+(5, 'nombre', 'correo@electronico.com', NULL, '$2y$10$6WD8ApUscv0PQxI5g9A5tObBWFQjmwkIealuOTwoNj/40tLsO.GsG', NULL, '2023-05-15 05:32:12', '2023-05-15 05:32:12'),
+(6, 'juan', 'juan@juan.com', NULL, '$2y$10$ezwEBX/FVHB4HBUyHsy2kuYDENaMdiNc9GuAt8sYmpamwB5KGsjTS', NULL, '2023-05-15 05:34:02', '2023-05-15 05:34:02'),
+(7, 'juan', 'ghkhkg@fhkldf.com', NULL, '$2y$10$ByL/hlRI6DXSZGQ5qdAhp.eggb2KfkHp4/pO9f5BacIZiOu3aHyy6', NULL, '2023-05-15 05:36:21', '2023-05-15 05:36:21');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -7111,7 +7122,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `mylist`
 --
 ALTER TABLE `mylist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `personal_access_tokens`
@@ -7123,7 +7134,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

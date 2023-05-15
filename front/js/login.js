@@ -1,30 +1,31 @@
-function vistaPrev(){
-  document.getElementById("save").addEventListener("click", function(event) {
+// function vistaPrev(){
+//   document.getElementById("save").addEventListener("click", function(event) {
         
-    event.preventDefault();
+//     event.preventDefault();
     
-    guardado();
-});
+//     guardado();
+// });
 
-document.getElementById("regis").addEventListener("click", function(event) {
+// document.getElementById("regis").addEventListener("click", function(event) {
     
-    event.preventDefault();
-    
-    registro();
-});
+//     event.preventDefault();
+//     console.log("dentro");
+//     registro();
+// });
 
-document.getElementById("login").addEventListener("click", function(event) {
+// document.getElementById("login").addEventListener("click", function(event) {
     
-    event.preventDefault();
+//     event.preventDefault();
     
-    login();
-});
+//     login();
+// });
 
   /////////
   //Login//
   /////////
 
   function login(){
+    console.log("dentro")
       const email = document.getElementById('logE').value;
       const password = document.getElementById('logP').value;
 
@@ -44,6 +45,9 @@ document.getElementById("login").addEventListener("click", function(event) {
           localStorage.setItem("token", result['authorisation']['token']);
           document.getElementById("form").style.display = "none";
           document.getElementById("contenido").style.display = "block";
+          console.log("dentro")
+
+          window.location.href = "https://developer.imdb.com/non-commercial-datasets/";
         })
         .catch(error => {
           alert("Tu correo o contraseña no son correctos");
@@ -55,10 +59,10 @@ document.getElementById("login").addEventListener("click", function(event) {
   ////////////
 
   function registro(){
+    console.log("Dentro");
       const nombre = document.getElementById('regN').value;
       const email = document.getElementById('regE').value;
       const password = document.getElementById('regP').value;
-
 
       var formdata = new FormData();
       formdata.append("name", nombre);
@@ -80,6 +84,7 @@ document.getElementById("login").addEventListener("click", function(event) {
           document.getElementById("contenido").style.display = "block";
       })
       .catch(error => {
+        console.log(error)
         alert("El correo que esta usando esta en uso o su contraseña es menor del minimo");
       });
   }
@@ -91,5 +96,3 @@ document.getElementById("login").addEventListener("click", function(event) {
   function logOut(){
       localStorage.removeItem("token");
   }
-
-}
