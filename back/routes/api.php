@@ -30,4 +30,8 @@ Route::controller(Selecciones::class)->group(function(){
     Route::post('year', 'year');
     Route::post('myList', 'myList');
     Route::post('obtenerLista', 'obtenerLista');
+    Route::post('borrar', 'borrar');
+    Route::get('directores', 'directores');
+    Route::get('actores', 'actores');
+    Route::post('filtro', 'filtro');
 });
