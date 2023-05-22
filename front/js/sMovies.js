@@ -194,7 +194,7 @@ function genre(){
     .catch(error => console.log('error', error));
 }
 
-//Nombre usuario
+//Nombre usuario (En desarrollo por errores en la llamada)
 function usuario(){
     var formdata = new FormData();
 

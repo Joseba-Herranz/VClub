@@ -1,4 +1,7 @@
-  /////////
+//Seccion en desarrollo ya que la parte de login sale un error en el CORS y no permite el envio de informacion para la creacion del usuario o obtencion de este
+
+
+/////////
   //Login//
   /////////
 
