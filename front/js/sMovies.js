@@ -71,6 +71,7 @@ function addList(movieID){
 
  //Obtain the list
  function myList(){
+    usuario();
     console.log("myList");
     var formdata = new FormData();
     formdata.append("id", "1");
@@ -98,6 +99,7 @@ function addList(movieID){
         });
     })
     .catch(error => console.log('error', error));
+    
  }
 
  //Delete movies
@@ -189,5 +191,21 @@ function genre(){
             document.getElementById("movieList").innerHTML = mov;
         });
     })
+    .catch(error => console.log('error', error));
+}
+
+//Nombre usuario
+function usuario(){
+    var formdata = new FormData();
+
+    var requestOptions = {
+    method: 'GET',
+    body: formdata,
+    redirect: 'follow'
+    };
+
+    fetch("http://127.0.0.1:8000/api/usuario", requestOptions)
+    .then(response => response.json())
+    .then(result => console.log(result))
     .catch(error => console.log('error', error));
 }

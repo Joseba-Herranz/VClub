@@ -125,5 +125,13 @@ class Selecciones extends Controller
         ]);
     }
 
-    
+    function usuario(){
+        $user = DB::select('select * from users where id=1');
+
+        return response()->json([
+            'data' => $user
+        ]);
+
+    }
+
 }

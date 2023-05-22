@@ -34,4 +34,5 @@ Route::controller(Selecciones::class)->group(function(){
     Route::get('directores', 'directores');
     Route::get('actores', 'actores');
     Route::post('filtro', 'filtro');
+    Route::get('usuario', 'usuario');
 });
