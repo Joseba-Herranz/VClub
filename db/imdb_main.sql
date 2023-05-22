@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-04-2023 a las 12:41:08
+-- Tiempo de generación: 22-05-2023 a las 10:21:39
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -16,7 +16,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+CREATE DATABASE imdb;
 
+
+USE imdb;
 --
 -- Base de datos: `imdb`
 --
@@ -5945,9 +5948,6 @@ CREATE TABLE `mylist` (
 --
 
 INSERT INTO `mylist` (`id`, `userID`, `movieID`) VALUES
-(1, 1, 0),
-(2, 1, 1),
-(3, 1, 2),
 (4, 1, 3),
 (6, 1, 4);
 
@@ -7017,6 +7017,19 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'VClub', 'VClub@vclub.com', NULL, '', NULL, NULL, NULL),
+(9, 'juan', 'juan@juan.com', NULL, '$2y$10$7am88Bevvpc.4c.uwNkIhu5/KYZLR5C4sJG48Hbzdm2SLeQ/Rrh1C', NULL, '2023-05-15 08:30:49', '2023-05-15 08:30:49'),
+(10, 'prueba1', 'prueba@prueba.com', NULL, '$2y$10$KPtjtp92ipjZ9R.3a6KlCepTjLE2RgpIGDdPSzOQuLUNKkSmexQOS', NULL, '2023-05-15 08:38:59', '2023-05-15 08:38:59'),
+(11, 'juan', 'ghkhkg@fhkldf.com', NULL, '$2y$10$At6uNGPI.BHtKbrWOpjSwudWOLnqb63BI1HVPWWFcZiVnGxy/TnH.', NULL, '2023-05-15 08:46:30', '2023-05-15 08:46:30'),
+(12, 'pol', 'prueba2@prueba.com', NULL, '$2y$10$AcKkhGHcFIXLPiInwH8lje9bBH.uJvWTs.33mTiK7MeGiIEmWCEh2', NULL, '2023-05-15 08:47:47', '2023-05-15 08:47:47'),
+(13, 'kiko', 'kiko@kiko.com', NULL, '$2y$10$Iu2YfK8A0k2NsC5zw9djWOKyMzJhydJ4hds8V.RN.Z6lmgh0POoIe', NULL, '2023-05-15 08:50:01', '2023-05-15 08:50:01'),
+(14, 'try', 'try@try.com', NULL, '$2y$10$d5bFjrHVuhC4jZa37Y8/Z.w2jAkeqxUpsnB1S6DY7y2PYuxOTs94q', NULL, '2023-05-15 09:14:44', '2023-05-15 09:14:44');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -7111,7 +7124,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `mylist`
 --
 ALTER TABLE `mylist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `personal_access_tokens`
@@ -7123,7 +7136,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas

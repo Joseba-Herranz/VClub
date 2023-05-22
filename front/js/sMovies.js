@@ -51,8 +51,7 @@ function withScore(){
 }
 
 //Add to myList
- function addList(movieID){
-    
+function addList(movieID){    
     console.log(movieID);
     var formdata = new FormData();
     formdata.append("id", movieID);
@@ -158,7 +157,6 @@ function directores(){
         .catch(error => console.log('error', error));
 } 
 
-
 //Filtro
 function genre(){
     var generosSelect = document.getElementById("generos");
@@ -192,5 +190,4 @@ function genre(){
         });
     })
     .catch(error => console.log('error', error));
-
-  }
+}
